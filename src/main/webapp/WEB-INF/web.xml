@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	version="4.0">
+
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	
+	<!-- <listener>
+	  <listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+	</listener> -->
+	
+	
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+
+	<!-- Welcome page -->
+	<welcome-file-list>
+		<welcome-file>welcome.xhtml</welcome-file>
+	</welcome-file-list>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/javax.faces.resource/*</url-pattern>
+	</servlet-mapping>
+	
+	<!-- <listener> 
+	  <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class> 
+	</listener> 
+	 -->
+	
+	<mime-mapping>
+		<extension>ttf</extension>
+		<mime-type>css/fonts</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>otf</extension>
+		<mime-type>font/opentype</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>woff2</extension>
+		<mime-type>font/woff2</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>woff</extension>
+		<mime-type>font/woff</mime-type>
+	</mime-mapping>
+	<mime-mapping>
+		<extension>eot</extension>
+		<mime-type>application/vnd.ms-fontobject</mime-type>
+	</mime-mapping>
+	
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>client</param-value>
+	</context-param>
+	
+	<context-param>
+	    <param-name>
+	        javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL
+	    </param-name>
+	    <param-value>true</param-value>
+	</context-param>
+
+	<!-- <persistence-context-ref>
+		<persistence-context-ref-name>recruitDB/em</persistence-context-ref-name>
+		<persistence-unit-name>recruitDBPersistenceUnit</persistence-unit-name>
+	</persistence-context-ref>
+
+	<persistence-unit-ref>
+		<persistence-unit-ref-name>recruitDB/emf</persistence-unit-ref-name>
+		<persistence-unit-name>recruitDBPersistenceUnit</persistence-unit-name>
+	</persistence-unit-ref>
+
+	<listener>
+		<listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+	</listener>
+
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+		<dispatcher>ERROR</dispatcher>
+	</filter-mapping> -->
+
+</web-app>
